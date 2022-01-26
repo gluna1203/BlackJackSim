@@ -1,0 +1,30 @@
+{
+  "name": "blackjacksim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mongod": "^2.0.0",
+    "mongodb": "^4.3.1",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2",
+    "y": "^0.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gluna1203/BlackJackSim.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gluna1203/BlackJackSim/issues"
+  },
+  "homepage": "https://github.com/gluna1203/BlackJackSim#readme"
+}
