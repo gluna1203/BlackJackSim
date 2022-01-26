@@ -35,3 +35,7 @@ const checkAuth = (req, res, next) => {
         res.redirect('/');
     }
 }
+
+app.get("/", routes.login);
+
+app.listen(port);
