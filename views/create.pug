@@ -8,18 +8,11 @@ link(rel='stylesheet' type='text/css' href='/style.css')
 #content(style='top:10vw;height:75vw')
 #margin-box(style='height:60vw')
     h1(style="text-align:center; margin-top:2.5vw") Create A User
-    #addForm(style='position:relative;top:2vw;left:18vw; overflow-y: hidden;')
     form(action="/createUser" method="post")
         h1 Username
         input(type='text' name="username")
         h1 Password
         input(type='text' name="password" )
-        h1 Display Name
-        input(type='text' name ="displayName")
-        h1 Status Message:            
-        input(type='text' name="message")
-        //h1 Select Your Profile Picture
-        //input#newUserProfilePic(type='file' value='select file' accept='image/*')
         <br>
         <br>
         input(id="submit" type="submit" value="Submit") 
