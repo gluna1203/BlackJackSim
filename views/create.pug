@@ -1,21 +1,13 @@
-doctype html
-head
-meta(charset='utf-8')
-title Create User
-link(rel='stylesheet' type='text/css' href='/style.css')
+extends layout
 
-#fixed-header
-#content(style='top:10vw;height:75vw')
-#margin-box(style='height:60vw')
-    h1(style="text-align:center; margin-top:2.5vw") Create A User
+block content
+    h1 Create A User
     form(action="/createUser" method="post")
-        h1 Username
+        p Username
         input(type='text' name="username")
-        h1 Password
+        p Password
         input(type='text' name="password" )
-        <br>
-        <br>
+        br
+        br
         input(id="submit" type="submit" value="Submit") 
-        a(href='/login' style='text-decoration: none; ')
-            #submit(style='text-decoration: none; left:26.5vw; top:-2.5vw;height:2vw!important;') Login
     

@@ -16,3 +16,11 @@ exports.login = (req, res) => {
 exports.loginAuth = async (req, res) => {
 
 }
+
+exports.create = (req, res) => {
+    res.render('create')
+}
+
+exports.createUser = async (req, res) => {
+
+}
