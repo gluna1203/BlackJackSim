@@ -37,8 +37,11 @@ const checkAuth = (req, res, next) => {
 }
 
 app.get("/", routes.login);
-// app.post("/", urlencodedParser ,routes.loginAuth);
+app.post("/", urlencodedParser, routes.loginAuth);
+
 app.get("/create", routes.create)
-// app.get("/home", checkAuth, routes.home);
+app.post("/create", urlencodedParser, routes.createUser);
+
+app.get("/home", checkAuth, routes.home);
 
 app.listen(port);

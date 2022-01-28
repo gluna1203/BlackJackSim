@@ -24,3 +24,7 @@ exports.create = (req, res) => {
 exports.createUser = async (req, res) => {
 
 }
+
+exports.home = (req, res) => {
+    
+}
