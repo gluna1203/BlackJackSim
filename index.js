@@ -42,6 +42,6 @@ app.post("/", urlencodedParser, routes.loginAuth);
 app.get("/create", routes.create)
 app.post("/create", urlencodedParser, routes.createUser);
 
-app.get("/home", checkAuth, routes.home);
+app.get("/home", routes.home);
 
 app.listen(port);

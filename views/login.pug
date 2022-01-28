@@ -1,7 +1,6 @@
 extends layout
 
 block content
-    h1 test
     form(method='POST' action='/')
             p Username:
                 br
@@ -11,6 +10,7 @@ block content
                 input(type="password" name='password')
             p 
                 input(type='submit' value="Log in")
+    
     form(action="/create" Method='POST')
         p 
-            input(type="submit" onclick="/create" value="Create Account")
+            input(type="submit" onclick="/create" value="Create")
