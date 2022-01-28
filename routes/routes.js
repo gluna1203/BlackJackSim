@@ -12,3 +12,7 @@ const users = db.collection('Users');
 exports.login = (req, res) => {
     res.render('login')
 }
+
+exports.loginAuth = async (req, res) => {
+
+}
