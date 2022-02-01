@@ -9,12 +9,35 @@ const db = client.db(dbName);
 
 const users = db.collection('Users');
 
+const hashComplete = (password, the_hash) => {
+    bcrypt.compare(password, the_hash, (err, res) => {
+        console.log('async: ' + res);
+    })
+}
+
 exports.login = (req, res) => {
     res.render('login')
 }
 
 exports.loginAuth = async (req, res) => {
+    await client.connect();
 
+    if (req.body.username == undefined || req.body.password == undefined) {
+        res.redirect('/');
+    } else {
+        const filteredDocs = await users.find({ username: req.body.username }).toArray()
+        if (bcrypt.compareSync(req.body.password, filteredDocs[0].password)) {
+            req.session.user = {
+                isAuthenticated: true,
+                username: filteredDocs[0].username
+            }
+            console.log("Username: " + req.body.username)
+            res.redirect('/home')
+        } else {
+            res.redirect('/')
+        }
+    }
+    client.close();
 }
 
 exports.create = (req, res) => {
@@ -23,12 +46,14 @@ exports.create = (req, res) => {
 
 exports.createUser = async (req, res) => {
     await client.connect();
+    let salt = bcrypt.genSaltSync(10);
+    let hash = bcrypt.hashSync(req.body.password, salt);
     let person = {
-        userName: req.body.username,
-        password: req.body.password
+        username: req.body.username,
+        password: hash
     };
 
-    const insertResult = await collection.insertOne(person);
+    const insertResult = await users.insertOne(person);
     client.close();
     res.redirect('/');
 }
