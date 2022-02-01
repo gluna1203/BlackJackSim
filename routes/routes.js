@@ -22,7 +22,7 @@ exports.login = (req, res) => {
 exports.loginAuth = async (req, res) => {
     await client.connect();
 
-    if (req.body.username == undefined || req.body.password == undefined) {
+    if (req.body.username == '' || req.body.password == '') {
         res.redirect('/');
     } else {
         const filteredDocs = await users.find({ username: req.body.username }).toArray()
