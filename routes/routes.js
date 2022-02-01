@@ -22,7 +22,15 @@ exports.create = (req, res) => {
 }
 
 exports.createUser = async (req, res) => {
+    await client.connect();
+    let person = {
+        userName: req.body.username,
+        password: req.body.password
+    };
 
+    const insertResult = await collection.insertOne(person);
+    client.close();
+    res.redirect('/');
 }
 
 exports.home = async (req, res) => {
