@@ -43,6 +43,8 @@ app.post("/", urlencodedParser, routes.loginAuth);
 app.post("/create", urlencodedParser, routes.create);
 app.post("/createUser", urlencodedParser, routes.createUser);
 
+app.post("/logout", routes.logout)
+
 app.get("/home", checkAuth, routes.home);
 
 app.listen(port);
