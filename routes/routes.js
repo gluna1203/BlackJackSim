@@ -47,6 +47,10 @@ function suffleDeck() {
     }
 }
 
+function playGame() {
+    
+}
+
 
 
 exports.login = (req, res) => {
