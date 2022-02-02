@@ -15,6 +15,29 @@ const hashComplete = (password, the_hash) => {
     })
 }
 
+var suits = ["spades", "clubs", "hearts", "diamonds"];
+var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+var Deck = new Array();
+
+
+class Card {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+
+
+function createDeck() {
+    for (var i = 0; i < values.length; i++){
+        for (var j = 0; j < suits.length; j++) {
+            Deck.push(new Card(values[i] + " of " + suits[j]))
+        }
+    }
+}
+
+
+
 exports.login = (req, res) => {
     res.render('login')
 }
@@ -71,3 +94,4 @@ exports.logout = (req, res) => {
         }
     })
 }
+
