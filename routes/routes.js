@@ -36,6 +36,17 @@ function createDeck() {
     }
 }
 
+function suffleDeck() {
+    for (var i = 0; i < 1000; i++){
+        var locus1 = Math.floor(Math.random * Deck.length);
+        var locus2 = Math.floor(Math.random * Deck.length);
+        var tmp = Deck[locus1];
+
+        Deck[locus1] = Deck[locus2];
+        Deck[locus2] = tmp;
+    }
+}
+
 
 
 exports.login = (req, res) => {
