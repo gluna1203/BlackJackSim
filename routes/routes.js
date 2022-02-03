@@ -16,7 +16,7 @@ const hashComplete = (password, the_hash) => {
 }
 
 var suits = ["spades", "clubs", "hearts", "diamonds"];
-var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
 var Deck = new Array();
 
 
@@ -61,7 +61,16 @@ function playBlackjack() {
     //show player their hand and ask if they want another
 }
 
-
+function calculateHandValue(Array){
+    var TPV
+    for (var i = 0;i<Array.length;i++){
+        switch(Array[i]){
+            case "Ace":
+                break;
+                case "2"
+        }
+    }
+}
 
 
 
