@@ -14,6 +14,7 @@
     "y": "^0.3.2"
   },
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

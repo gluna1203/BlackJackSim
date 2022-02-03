@@ -47,9 +47,21 @@ function suffleDeck() {
     }
 }
 
-function playGame() {
-    
+function playBlackjack() {
+    createDeck;
+    suffleDeck;
+    var PlayerHand = new Array;
+    var DealerHand = new Array;
+
+    DealerHand.push(Deck.pop);
+    PlayerHand.push(Deck.pop);
+    DealerHand.push(Deck.pop);
+    PlayerHand.push(Deck.pop);
+
+    //show player their hand and ask if they want another
 }
+
+
 
 
 
