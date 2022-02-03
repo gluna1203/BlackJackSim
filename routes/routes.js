@@ -62,12 +62,16 @@ function playBlackjack() {
 }
 
 function calculateHandValue(Array){
-    var TPV
+    var TPV = 0;
     for (var i = 0;i<Array.length;i++){
-        switch(Array[i]){
-            case "Ace":
-                break;
-                case "2"
+        if(Array[i].startwWith("2")){
+            TPV = TPV + 2;
+        }
+        if(Array[i].startsWith("3")){
+            TPV = TPV + 3;
+        }
+        if(Array[i].startsWith("A")){
+
         }
     }
 }
