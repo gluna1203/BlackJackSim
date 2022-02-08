@@ -48,17 +48,53 @@ function suffleDeck() {
 }
 
 function playBlackjack() {
-    createDeck;
-    suffleDeck;
-    var PlayerHand = new Array;
-    var DealerHand = new Array;
+    var PlayAnotherHand = true;
+    while(PlayAnotherHand){
+        createDeck;
+        suffleDeck;
+        var PlayerHand = new Array;
+        var DealerHand = new Array;
 
-    DealerHand.push(Deck.pop);
-    PlayerHand.push(Deck.pop);
-    DealerHand.push(Deck.pop);
-    PlayerHand.push(Deck.pop);
+        DealerHand.push(Deck.pop);
+        PlayerHand.push(Deck.pop);
+        DealerHand.push(Deck.pop);
+        PlayerHand.push(Deck.pop);
 
-    //show player their hand and ask if they want another
+        var DealerPoints = calculateHandValue(DealerHand);
+
+        var PlayerPoints = calculateHandValue(PlayerHand);
+
+
+        while(true){
+            //show player their hand and ask if they want another or raise
+
+            if(PlayerPoints == 21){
+                PlayerWon();
+                break;
+            } else if(PlayerPoints > 21){
+                DealerHand();
+                break;
+            }
+
+            if(DealerPoints == 21){
+                DealerWon();
+                break;
+            }else if(DealerPoints > 21){
+                PlayerWon();
+                break;
+            }
+            //recalculate player's hand if they got another card and ask again
+
+        }  
+    }
+}
+
+function PLayerWon(){
+
+}
+
+function DealerWon(){
+
 }
 
 function calculateHandValue(Array){
