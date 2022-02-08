@@ -66,7 +66,7 @@ function playBlackjack() {
 
 
         while(true){
-            //show player their hand and ask if they want another or raise
+            //show player their hand and ask if they want another or raise their bet
 
             if(PlayerPoints == 21){
                 PlayerWon();
