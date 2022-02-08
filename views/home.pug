@@ -1,11 +1,11 @@
 extends layout
 
 block content
-    h1 test home
+    h1 home
 
-    form(action="/edit" method="post")
+    form(action=`/edit/${person._id}` method="POST")
         p Edit Account?
-            input(type="submit" vale="Edit") 
+            input(type="submit" value="Edit") 
         
 
     form(action="/logout" method='POST')

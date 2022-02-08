@@ -43,11 +43,13 @@ app.post("/", urlencodedParser, routes.loginAuth);
 app.post("/create", urlencodedParser, routes.create);
 app.post("/createUser", urlencodedParser, routes.createUser);
 
-//app.get('/edit', checkAuth, routes.edit);
-app.post('/edit',checkAuth, urlencodedParser, routes.edit);
+//app.get('/edit/:id',checkAuth, routes.edit);
+app.post('/edit/:id',checkAuth, urlencodedParser, routes.edit);
+
+app.post('/editUser/:id', checkAuth, urlencodedParser, routes.edit)
 
 app.post("/logout", urlencodedParser, routes.logout)
 
-app.get("/home", checkAuth, routes.home);
+app.get("/home/:id", checkAuth, routes.home);
 
 app.listen(port);

@@ -1,11 +1,14 @@
 extend layout
 
 block content
-    form(action=`/edit/${person._id}` method="POST")
-    label(for='name') Username: 
-        input(type="text", name="username" value=person.username)
-        br
-        label(for="password") Password: 
-        input(type="text", name="password") 
-        br
+    form(action=`/editUser/${person._id}` method="POST")
+    p UserName:
+        input(type="text" name="username" value=person.username)
+    p Password:
+        input(type="text" name="password")
+    p
         input(type="submit" value="Update Person")
+        
+    form(action="/logout" method='POST')
+            p   
+                input(type="submit" value="Logout")

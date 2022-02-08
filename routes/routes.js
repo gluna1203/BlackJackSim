@@ -94,8 +94,8 @@ exports.loginAuth = async (req, res) => {
                 isAuthenticated: true,
                 username: filteredDocs[0].username
             }
-            console.log("Username: " + req.body.username)
-            res.redirect('/home')
+            console.log("Username: " + filteredDocs[0]._id)
+            res.redirect('/home/'+ filteredDocs[0]._id)
         } else {
             res.redirect('/')
         }
@@ -124,10 +124,11 @@ exports.createUser = async (req, res) => {
 exports.edit = async (req, res) => {
     await client.connect();
     const filteredDocs = await users.find(ObjectId(req.params.id)).toArray();
-    client.close();
+    
     res.render('edit', {
         person: filteredDocs[0]
     });
+    client.close();
 };
 
 exports.editUser = async (req, res) => {
@@ -157,12 +158,18 @@ exports.editUser = async (req, res) => {
             }
         );
     }
+    const findResult = await users.find({ username: req.body.username }).toArray();
+    res.redirect('/home/'+findResult[0]._id);
     client.close();
-    res.redirect('/');
 };
 
-exports.home = (req, res) => {
-    res.render('home')
+exports.home = async (req, res) => {
+    await client.connect();
+    const findResult = await users.find({ username: req.session.user.username }).toArray();
+    res.render(`home`, { 
+        person: findResult[0]
+    })
+    client.close();
 }
 
 exports.logout = (req, res) => {
