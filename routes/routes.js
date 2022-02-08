@@ -151,7 +151,47 @@ exports.createUser = async (req, res) => {
     res.redirect('/');
 }
 
-exports.home = async (req, res) => {
+exports.edit = async (req, res) => {
+    await client.connect();
+    const filteredDocs = await users.find(ObjectId(req.params.id)).toArray();
+    client.close();
+    res.render('edit', {
+        person: filteredDocs[0]
+    });
+};
+
+exports.editUser = async (req, res) => {
+    await client.connect();
+
+    if (req.body.password == '') {
+        const findResult = await users.find({ username: req.body.username }).toArray();
+        const updateResult = await users.updateOne(
+            { _id: ObjectId(req.params.id) },
+            {
+                $set: {
+                    username: req.body.username,
+                    password: findResult[0].password,
+                }
+            }
+        );
+    } else {
+        let salt = bcrypt.genSaltSync(10);
+        let hash = bcrypt.hashSync(req.body.password, salt);
+        const updateResult = await users.updateOne(
+            { _id: ObjectId(req.params.id) },
+            {
+                $set: {
+                    username: req.body.username,
+                    password: hash,
+                }
+            }
+        );
+    }
+    client.close();
+    res.redirect('/');
+};
+
+exports.home = (req, res) => {
     res.render('home')
 }
 
