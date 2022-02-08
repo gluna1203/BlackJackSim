@@ -15,6 +15,69 @@ const hashComplete = (password, the_hash) => {
     })
 }
 
+var suits = ["spades", "clubs", "hearts", "diamonds"];
+var values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"];
+var Deck = new Array();
+
+
+class Card {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+
+
+function createDeck() {
+    for (var i = 0; i < values.length; i++){
+        for (var j = 0; j < suits.length; j++) {
+            Deck.push(new Card(values[i] + " of " + suits[j]))
+        }
+    }
+}
+
+function suffleDeck() {
+    for (var i = 0; i < 1000; i++){
+        var locus1 = Math.floor(Math.random * Deck.length);
+        var locus2 = Math.floor(Math.random * Deck.length);
+        var tmp = Deck[locus1];
+
+        Deck[locus1] = Deck[locus2];
+        Deck[locus2] = tmp;
+    }
+}
+
+function playBlackjack() {
+    createDeck;
+    suffleDeck;
+    var PlayerHand = new Array;
+    var DealerHand = new Array;
+
+    DealerHand.push(Deck.pop);
+    PlayerHand.push(Deck.pop);
+    DealerHand.push(Deck.pop);
+    PlayerHand.push(Deck.pop);
+
+    //show player their hand and ask if they want another
+}
+
+function calculateHandValue(Array){
+    var TPV = 0;
+    for (var i = 0;i<Array.length;i++){
+        if(Array[i].startwWith("2")){
+            TPV = TPV + 2;
+        }
+        if(Array[i].startsWith("3")){
+            TPV = TPV + 3;
+        }
+        if(Array[i].startsWith("A")){
+
+        }
+    }
+}
+
+
+
 exports.login = (req, res) => {
     res.render('login')
 }
@@ -111,3 +174,4 @@ exports.logout = (req, res) => {
         }
     })
 }
+
