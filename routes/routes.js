@@ -106,9 +106,39 @@ function calculateHandValue(Array){
         if(Array[i].startsWith("3")){
             TPV = TPV + 3;
         }
+        if(Array[i].startsWith("4")){
+            TPV = TPV + 4;
+        }
+        if(Array[i].startsWith("5")){
+            TPV = TPV + 5;
+        }
+        if(Array[i].startsWith("6")){
+            TPV = TPV + 6;
+        }
+        if(Array[i].startsWith("7")){
+            TPV = TPV + 7;
+        }
+        if(Array[i].startsWith("8")){
+            TPV = TPV + 8;
+        }
+        if(Array[i].startsWith("9")){
+            TPV = TPV + 9;
+        }
+        if(Array[i].startsWith("10, Jack, Queen, King")){
+            TPV = TPV + 10;
+        }
         if(Array[i].startsWith("A")){
+            TPV = TPV + 11;
 
         }
+        if(TPV < 21){
+            while(PlayerHand.Array["A"] == true){
+                TPV = TPV - 10;
+            }
+            
+        }
+
+       
     }
 }
 
