@@ -3,6 +3,11 @@ extends layout
 block content
     h1 test home
 
+    form(action="/edit" method="post")
+        p Edit Account?
+            input(type="submit" vale="Edit") 
+        
+
     form(action="/logout" method='POST')
             p   
                 input(type="submit" value="Logout")
