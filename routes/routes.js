@@ -179,7 +179,8 @@ exports.createUser = async (req, res) => {
     let hash = bcrypt.hashSync(req.body.password, salt);
     let person = {
         username: req.body.username,
-        password: hash
+        password: hash,
+        wins: 0
     };
 
     const insertResult = await users.insertOne(person);
@@ -199,7 +200,7 @@ exports.edit = async (req, res) => {
 
 exports.editUser = async (req, res) => {
     await client.connect();
-
+    console.log("made it");
     if (req.body.password == '') {
         const findResult = await users.find({ username: req.body.username }).toArray();
         const updateResult = await users.updateOne(

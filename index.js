@@ -46,7 +46,7 @@ app.post("/createUser", urlencodedParser, routes.createUser);
 //app.get('/edit/:id',checkAuth, routes.edit);
 app.post('/edit/:id',checkAuth, urlencodedParser, routes.edit);
 
-app.post('/editUser/:id', checkAuth, urlencodedParser, routes.edit)
+app.post('/editUser/:id', urlencodedParser, routes.editUser)
 
 app.post("/logout", urlencodedParser, routes.logout)
 

@@ -1,0 +1,108 @@
+html{
+    background-color: #F72C25;
+}
+
+.Menu {
+    background-color: #FBFBFF;
+    border: 5px solid #EDB458;
+border-radius: 10px;
+width: 1000px;
+padding: 5px;
+margin: 5px;
+display: flex;
+flex-direction: row;
+position: absolute;
+top: 35%;
+bottom: 35%;
+justify-content: flex-end;
+font-size: 25px;
+
+
+
+}
+
+.button {
+background-color: #040F16;
+color: #FBFBFF;
+border: 5px solid #EDB458;
+border-radius: 10px;
+width: 75px;
+padding: 10px;
+margin: 10px;
+text-align: center;
+cursor: pointer;
+user-select: none;
+font-size: 50;
+height: 100px;
+animation: unset;
+
+
+cursor: pointer;
+box-shadow: 0 10px 40px 2px rgba(0,0,0,0.4);
+transform-origin: center center 0px;
+transition: all .5s ease-out;
+animation-name: animate;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+transform: perspective(75opx) rotateX(35deg) ;
+transform: rotateY(4deg);
+transform: rotateZ(-30deg);
+z-index: 1;
+}
+@keyframes animate {
+    0% { margin-top: 5vh}
+
+    50% { margin-top: 2vh}
+
+    100% {margin-top: 5vh}
+
+}
+
+.button:hover
+{
+    animation: unset;
+    margin-top: 0vh;
+    transform: perspective(750px);
+    rotate: X(0deg);
+    rotate: Y(0deg);
+    rotate: z(0deg);
+    background-color: #F72C25;
+    color:#EDB458;
+    border-color: #040F16
+}
+
+.title {
+    background-color: #FBFBFF;
+    border: 5px solid #EDB458;
+border-radius: 10px;
+width: 1000px;
+padding: 5px;
+margin: 5px;
+text-align: left;
+
+user-select: none;
+
+position: absolute;
+top: 5%;
+left: 35%;
+
+font-size: 100px;
+overflow: hidden;
+}
+
+.inputName {
+    background-color: #FBFBFF;
+    border: 5px solid #EDB458;
+border-radius: 10px;
+width: 600px;
+padding: 5px;
+margin: 5px;
+text-align: center;
+
+user-select: none;
+
+position: absolute;
+
+left: 25%;
+
+}

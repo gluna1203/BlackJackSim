@@ -1,13 +1,13 @@
 extend layout
 
 block content
-    form(action=`/editUser/${person._id}` method="POST")
-    p UserName:
+    form(id='form' action=`/editUser/${person._id}` method="POST")
+    p Username:
         input(type="text" name="username" value=person.username)
     p Password:
         input(type="text" name="password")
     p
-        input(type="submit" value="Update Person")
+        input(type="submit" onclick=`/editUser/${person._id}` value="Update Person")
         
     form(action="/logout" method='POST')
             p   

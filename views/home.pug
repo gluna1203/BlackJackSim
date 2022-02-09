@@ -3,6 +3,14 @@ extends layout
 block content
     h1 home
 
+    div 
+        .Menu
+            .button  Play 
+            .button  Edit Profile
+            .button  Exit Game
+    div
+        .title  BlackJack
+
     form(action=`/edit/${person._id}` method="POST")
         p Edit Account?
             input(type="submit" value="Edit") 
