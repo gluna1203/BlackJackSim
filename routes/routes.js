@@ -67,7 +67,7 @@ function playBlackjack() {
 
 
         while(true){
-            //show player their hand and ask if they want another or raise their bet
+            //show player their hand and ask if they want another card or raise their bet
 
             if(PlayerPoints == 21){
                 PlayerWon();
@@ -84,6 +84,9 @@ function playBlackjack() {
                 PlayerWon();
                 break;
             }
+
+            DealerHand.push(Deck.pop());
+            PlayerHand.push(Deck.pop());
             //recalculate player's hand if they got another card and ask again
 
         }  
@@ -91,7 +94,7 @@ function playBlackjack() {
 }
 
 function PlayerWon(){
-    
+
 }
 
 function DealerWon(){
