@@ -103,6 +103,7 @@ function DealerWon(){
 
 function calculateHandValue(Array){
     var TPV = 0;
+    var hasAce = false;
     for (var i = 0;i<Array.length;i++){
         if(Array[i].startwWith("2")){
             TPV = TPV + 2;
@@ -133,17 +134,16 @@ function calculateHandValue(Array){
         }
         if(Array[i].startsWith("A")){
             TPV = TPV + 11;
-
+            hasAce = true;
         }
-        if(TPV < 21){
-            while(PlayerHand.Array["A"] == true){
-                TPV = TPV - 10;
-            }
-            
-        }
+        
 
        
     }
+    if(TPV > 21 && hasAce){
+        TPV -= 10;
+    }
+    return TPV;
 }
 
 
