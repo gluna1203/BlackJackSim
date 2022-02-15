@@ -103,7 +103,7 @@ function DealerWon(){
 
 function calculateHandValue(Array){
     var TPV = 0;
-    var hasAce = false;
+    var hasAce = 1;
     for (var i = 0;i<Array.length;i++){
         if(Array[i].startwWith("2")){
             TPV = TPV + 2;
@@ -129,19 +129,18 @@ function calculateHandValue(Array){
         if(Array[i].startsWith("9")){
             TPV = TPV + 9;
         }
-        if(Array[i].startsWith("10, Jack, Queen, King")){
+        if(Array[i].startsWith("10" || "Jack" || "Queen" || "King")){
             TPV = TPV + 10;
         }
         if(Array[i].startsWith("A")){
             TPV = TPV + 11;
-            hasAce = true;
-        }
-        
-
-       
+            hasAce++;
+        } 
     }
-    if(TPV > 21 && hasAce){
-        TPV -= 10;
+    for(var i = 0; i<hasAce; i++){
+        if(TPV > 21){
+            TPV -= 10;
+        }
     }
     return TPV;
 }
