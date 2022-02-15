@@ -3,17 +3,13 @@ extends layout
 block content
     div 
         .Menu
-            .button  Play 
-            .button  Edit Profile
-            .button  Logout
+            form(action="/game" method="POST")
+                input(class="button" type="submit" value="Play") 
+
+            form(action=`/edit/${person._id}` method="POST")
+                input(class="button" type="submit" value="Edit") 
+
+            form(action="/logout" method='POST')
+                input(class="button" type="submit" value="Logout") 
     div
         .title  BlackJack
-
-    form(action=`/edit/${person._id}` method="POST")
-        p Edit Account?
-            input(type="submit" value="Edit") 
-        
-
-    form(action="/logout" method='POST')
-            p   
-                input(type="submit" value="Logout")
