@@ -135,10 +135,7 @@ function calculateHandValue(Array){
         if(Array[i].startsWith("A")){
             TPV = TPV + 11;
             hasAce = true;
-        }
-        
-
-       
+        } 
     }
     if(TPV > 21 && hasAce){
         TPV -= 10;
