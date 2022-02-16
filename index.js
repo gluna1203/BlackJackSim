@@ -52,4 +52,6 @@ app.post("/logout", urlencodedParser, routes.logout)
 
 app.get("/home/:id", checkAuth, routes.home);
 
+app.post("/game", checkAuth, urlencodedParser, routes.game);
+
 app.listen(port);

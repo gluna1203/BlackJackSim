@@ -242,6 +242,12 @@ exports.home = async (req, res) => {
     client.close();
 }
 
+exports.game = async (req, res) =>{
+    await client.connect();
+    res.render("game");
+    client.close();
+}
+
 exports.logout = (req, res) => {
     req.session.destroy(err => {
         if (err) {
