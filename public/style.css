@@ -17,9 +17,21 @@ bottom: 35%;
 left: -5%;
 justify-content: flex-end;
 font-size: 25px;
+}
 
-
-
+.MenuTwo {
+    background-color: #FBFBFF;
+    border: 5px solid #EDB458;
+border-radius: 10px;
+width: 1000px;
+padding: 5px;
+margin: 5px;
+display: flex;
+flex-direction: column;
+position: absolute;
+right: -5%;
+justify-content: flex-end;
+font-size: 25px;
 }
 
 .button {

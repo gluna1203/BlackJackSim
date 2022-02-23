@@ -1,18 +1,18 @@
 extends layout
 
 block content
-    form(method='POST' action='/')
-            p Username:
-                br
-                input(type="text" name='username')
-            p Password:
-                br
-                input(type="password" name='password')
-            p 
-                input(type='submit' value="Log in")
-    
-    form(action="/create" method='POST')
-            p   New?
-                br
-                br
+    div
+        .Menu
+            form(method='POST' action='/')
+                p Username:
+                    input(type="text" name='username')
+                p Password:
+                    input(type="password" name='password')
+                p 
+                    input(type='submit' value="Log in")
+    div
+        .MenuTwo 
+            form(action="/create" method='POST')
+            p Need an Account? 
                 input(type="submit" value="Create")
+
