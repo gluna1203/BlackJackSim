@@ -2,6 +2,10 @@ html{
     background-color: #F72C25;
 }
 
+.Board{
+    background-color: #034710;
+}
+
 .Menu {
     background-color: #FBFBFF;
     border: 5px solid #EDB458;
@@ -124,7 +128,9 @@ left: 25%;
 .card{
     width:40px;
     height:60px;
-    border:1px solid #151718;
+    background-color: #F72C25;
+    color:#EDB458;
+    border-color: #040F16;
     float:left;
     margin-right:5px;
     margin-bottom:5px;
