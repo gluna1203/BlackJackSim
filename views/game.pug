@@ -6,13 +6,21 @@ head
     title Document
     link(href='style.css' rel='stylesheet')
 #board
-    #dealer.playingField
+    #dealer.playingField1
+        div(class="dealerName")
+            p Dealer
     #dealerCards.cardArea
-    #player0.playingField
-    .playerName Player
+    #player0.playingField2
+        div(class="playerName")
+            p #{person.username}
     #player0Cards.cardArea
-.Menu
-    .button  Deal Cards 
-    .button  HIT!
-    .button  Play Cards
-    .button  Exit Game
+.gameMenu
+    form(action="")
+        input(class="button" type="submit" value="Deal")
+    form(action="")
+        input(class="button" type="submit" value="Hit!")  
+    form(action="")
+        input(class="button" type="submit" value="Play") 
+    form(action=`/home/${person._id}` method='GET')
+        input(class="button" type="submit" value="Exit")
+

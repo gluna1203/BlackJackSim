@@ -23,9 +23,9 @@ var Deck = new Array();
 
 class Card {
     constructor(name) {
-      this.name = name;
+    this.name = name;
     }
-  }
+}
 
 
 
@@ -244,7 +244,10 @@ exports.home = async (req, res) => {
 
 exports.game = async (req, res) =>{
     await client.connect();
-    res.render("game");
+    const findResult = await users.find({ username: req.session.user.username }).toArray();
+    res.render("game", {
+        person: findResult[0]
+    });
     client.close();
 }
 

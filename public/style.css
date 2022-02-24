@@ -2,8 +2,21 @@ html{
     background-color: #F72C25;
 }
 
-.Board{
+#board {
+    border: 5px solid #040F16;
     background-color: #034710;
+    width: 1485px;
+    height: 750px;
+    margin-left: 10px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 40px 2px rgba(0,0,0,0.4);
+    transform-origin: center center 0px;
+    transition: all .5s ease-out;
+
 }
 
 .Menu {
@@ -145,3 +158,43 @@ span.number, span.suit{
     text-align:center;
     padding-top:8px;
 }
+
+.gameMenu {
+
+    border-radius: 10px;
+    width: 1000px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 35%;
+    bottom: 15%;
+    justify-content: flex-end;
+    font-size: 25px;
+    margin-top: 225px;
+    
+    
+    }
+
+    .playingField2 {
+        margin-top: 10px;
+        width: 525px;
+        height: 200px;
+        border: 5px solid #040F16;
+        background-color: #036816;
+        border-radius: 10px;
+        position: center;
+        margin-left: 450px;
+    }
+    .playingField1 {
+        margin-top: 10px;
+        width: 525px;
+        height: 200px;
+        border: 5px solid #040F16;
+        background-color: #036816;
+        border-radius: 10px;
+        position: center;
+        margin-left: 450px;
+    
+    }
