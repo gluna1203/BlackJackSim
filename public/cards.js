@@ -1,6 +1,6 @@
-var hitButton = document.getElementById("hit");
-var dealButton = document.getElementById("deal");
-var playbutton = document.getElementById("play");
+const hitButton = document.getElementById('hit');
+const dealButton = document.getElementById('deal');
+const playbutton = document.getElementById('play');
 
 
 
@@ -24,3 +24,24 @@ function deck() {
     return cards;
 }
 
+const handleClick = evt => {
+    console.log(evt.target.id);
+    switch(evt.target.id){
+        case 'deal':
+            console.log('Someone has clicked Button deal!');
+            break;
+        case 'hit':
+            console.log('Someone has clicked Button hit!')
+            break;
+        case 'play':
+            // content.style.display = 'none';
+            console.log('Someone has clicked Button play!')
+            break;
+    }
+}
+
+hitButton.addEventListener("click", handleClick);
+
+dealButton.addEventListener("click", handleClick);
+
+playbutton.addEventListener("click", handleClick);
