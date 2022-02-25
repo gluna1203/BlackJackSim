@@ -5,6 +5,7 @@ head
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Document
     link(href='style.css' rel='stylesheet')
+    script(type="text/javascript" src="cards.js")
 #board
     #dealer.playingField1
         div(class="dealerName")
@@ -15,12 +16,10 @@ head
             p #{person.username}
     #player0Cards.cardArea
 .gameMenu
-    form(action="")
-        input(class="button" type="submit" value="Deal")
-    form(action="")
-        input(class="button" type="submit" value="Hit!")  
-    form(action="")
-        input(class="button" type="submit" value="Play") 
+    .button(id="deal")  Deal Cards 
+    .button(id="hit")  HIT!
+    .button(id="play")  Play Cards
     form(action=`/home/${person._id}` method='GET')
         input(class="button" type="submit" value="Exit")
+
 
