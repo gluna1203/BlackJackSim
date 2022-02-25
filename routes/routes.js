@@ -68,7 +68,21 @@ function playBlackjack() {
 
         while(true){
             
-            //show player their hand and ask if they want another
+            for(var i = 0; i < PlayerHand.length(); i++){
+                console.log(PlayerHand[i])
+            }
+            var anotherCard = prompt("[Player's Username], would you like another card? Y or N")
+
+            
+            if(anotherCard.toLowerCase() == "y"){
+                PlayerHand.push(deck.pop())
+                console.log("You got another card. Here is you new hand")
+                for(var i = 0; i < PlayerHand.length(); i++){
+                    console.log(PlayerHand[i])
+                }
+            }else{
+                console.log("You didn't get another card")
+            }
             if(PlayerPoints == 21){
                 PlayerWon();
                 break;
