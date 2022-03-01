@@ -24,8 +24,25 @@ function deck() {
     return cards;
 }
 
+
+const shuffleArr = myArr => {
+    let a, b;
+    for (let i = 0; i < myArr.length - 1; i++){
+        rand = Math.floor(Math.random() * myArr.length);
+        a = myArr[i];
+        b = myArr[rand];
+        myArr[i] = b;
+        myArr[rand] = a;
+    }
+    return myArr;
+};
+
+var playerHand = [];
+var dealerHand = [];
+var deckHand = shuffleArr(cards);
+
 const handleClick = evt => {
-    console.log(evt.target.id);
+    //console.log(evt.target.id);
     switch(evt.target.id){
         case 'deal':
             console.log('Someone has clicked Button deal!');
@@ -34,7 +51,6 @@ const handleClick = evt => {
             console.log('Someone has clicked Button hit!')
             break;
         case 'play':
-            // content.style.display = 'none';
             console.log('Someone has clicked Button play!')
             break;
     }
