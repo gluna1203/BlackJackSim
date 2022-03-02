@@ -48,6 +48,10 @@ function suffleDeck() {
     }
 }
 
+var playerPool = 500
+
+var playerBet = 0
+
 function playBlackjack() {
     var PlayAnotherHand = true;
     while(PlayAnotherHand){
@@ -55,6 +59,8 @@ function playBlackjack() {
         suffleDeck;
         var PlayerHand = new Array;
         var DealerHand = new Array;
+
+        playerBet = prompt("[Player's Username], What is your intial Bet?")
 
         DealerHand.push(Deck.pop);
         PlayerHand.push(Deck.pop);
@@ -71,7 +77,9 @@ function playBlackjack() {
             for(var i = 0; i < PlayerHand.length(); i++){
                 console.log(PlayerHand[i])
             }
+
             var anotherCard = prompt("[Player's Username], would you like another card? Y or N")
+            playerBet += prompt("By how musch would you like to raise you bet? (Respond '0' if you dont wish to raise)")
 
             
             if(anotherCard.toLowerCase() == "y"){
@@ -87,7 +95,7 @@ function playBlackjack() {
                 PlayerWon();
                 break;
             } else if(PlayerPoints > 21){
-                DealerHand();
+                DealerWon();
                 break;
             }
 
@@ -108,11 +116,14 @@ function playBlackjack() {
 }
 
 function PlayerWon(){
-
+    console.log('You won, you now recieve 1.5x your bet')
+    playerPool += playerBet * 1.5
+    playerBet = 0
 }
 
 function DealerWon(){
-
+    console.log('You lost both this hand and you bet')
+    playerBet = 0
 }
 
 function calculateHandValue(Array){
