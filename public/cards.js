@@ -28,34 +28,46 @@ function calculateHandValue(Array){
     var TPV = 0;
     var hasAce = 1;
     for (var i = 0;i<Array.length;i++){
-        if(Array[i].startwWith("2")){
+        if(Array[i].name.includes("2")){
             TPV = TPV + 2;
         }
-        if(Array[i].startsWith("3")){
+        if(Array[i].name.includes("3")){
             TPV = TPV + 3;
         }
-        if(Array[i].startsWith("4")){
+        if(Array[i].name.includes("4")){
             TPV = TPV + 4;
         }
-        if(Array[i].startsWith("5")){
+        if(Array[i].name.includes("5")){
             TPV = TPV + 5;
         }
-        if(Array[i].startsWith("6")){
+        if(Array[i].name.includes("6")){
             TPV = TPV + 6;
         }
-        if(Array[i].startsWith("7")){
+        if(Array[i].name.includes("7")){
             TPV = TPV + 7;
         }
-        if(Array[i].startsWith("8")){
+        if(Array[i].name.includes("8")){
             TPV = TPV + 8;
         }
-        if(Array[i].startsWith("9")){
+        if(Array[i].name.includes("9")){
             TPV = TPV + 9;
         }
-        if(Array[i].startsWith("10" || "J" || "Q" || "K")){
+        if(Array[i].name.includes("10")){
             TPV = TPV + 10;
         }
-        if(Array[i].startsWith("A")){
+        if(Array[i].name.includes("J")){
+            TPV = TPV + 10;
+            hasAce++;
+        }
+        if(Array[i].name.includes("Q")){
+            TPV = TPV + 10;
+            hasAce++;
+        }  
+        if(Array[i].name.includes("K")){
+            TPV = TPV + 10;
+            hasAce++;
+        } 
+        if(Array[i].name.includes("A")){
             TPV = TPV + 11;
             hasAce++;
         } 
@@ -85,16 +97,14 @@ var playerHand = [];
 var dealerHand = [];
 var deckHand = shuffleArr(deck());
 
-var DealerPoints = calculateHandValue(dealerHand);
+//var DealerPoints = calculateHandValue(dealerHand);
 
-var PlayerPoints = calculateHandValue(playerHand);
+//var PlayerPoints = calculateHandValue(playerHand);
 
 const handleClick = evt => {
     //console.log(evt.target.id);
     switch(evt.target.id){
         case 'deal':
-            console.log('Someone has clicked Button deal!');
-            
             var cardOne= Math.floor(Math.random() * (deckHand.length + 1));
             dealerHand.push(deckHand[cardOne]);
             deckHand.pop(cardOne);
@@ -112,37 +122,35 @@ const handleClick = evt => {
             deckHand.pop(cardFour);
 
             console.log(deckHand)
-            console.log("Player: " + PlayerPoints)
-            console.log("Dealer: " + DealerPoints)
+            console.log("Player: " + calculateHandValue(playerHand))
+            console.log("Dealer: " + calculateHandValue(dealerHand))
             break;
         case 'hit':
-            console.log('Someone has clicked Button hit!')
             var cardPlayed = Math.floor(Math.random() * (deckHand.length + 1));
             playerHand.push(deckHand[cardPlayed])
             deckHand.pop(cardPlayed)
-            console.log(PlayerPoints)
+            console.log(calculateHandValue(playerHand))
             console.log(playerHand)
             break;
         case 'play':
-            console.log('Someone has clicked Button play!')
             if (calculateHandValue(dealerHand) < 10){
                 var cardPlayed = Math.floor(Math.random() * (deckHand.length + 1));
                 dealerHand.push(deckHand[cardPlayed])
                 deckHand.pop(cardPlayed)
             }
 
-            if(PlayerPoints == 21){
+            if(calculateHandValue(playerHand) == 21){
                 PlayerWon();
                 break;
-            } else if(PlayerPoints > 21){
+            } else if(calculateHandValue(playerHand) > 21){
                 DealerHand();
                 break;
             }
 
-            if(DealerPoints == 21){
+            if(calculateHandValue(dealerHand) == 21){
                 DealerWon();
                 break;
-            }else if(DealerPoints > 21){
+            }else if(calculateHandValue(dealerHand) > 21){
                 PlayerWon();
                 break;
             }
