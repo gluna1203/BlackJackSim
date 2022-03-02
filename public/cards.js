@@ -105,6 +105,10 @@ const handleClick = evt => {
     //console.log(evt.target.id);
     switch(evt.target.id){
         case 'deal':
+            playerHand.clear();
+            dealerHand.clear();
+            deckHand = shuffleArr(deck());
+
             dealButton.style.display = 'none';
             var cardOne= Math.floor(Math.random() * (deckHand.length + 1));
             dealerHand.push(deckHand[cardOne]);
