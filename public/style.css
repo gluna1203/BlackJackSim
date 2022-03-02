@@ -169,7 +169,7 @@ span.number, span.suit{
     flex-direction: row;
     position: absolute;
     top: 35%;
-    right: 25%;
+    right: 33%;
     bottom: 15%;
     justify-content: flex-end;
     font-size: 25px;
