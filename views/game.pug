@@ -10,12 +10,16 @@ head
         div(class="dealerName")
             p Dealer
             #dealerCards.cardArea
-                p 
+                div(class="card" id="dealerDisplayCards")
     #player0.playingField2
         div(class="playerName")
             p #{person.username}
             #player0Cards.cardArea
-                p 
+                div(class="card inside" id="player0DisplayCardsOne")
+                div(class="card inside" id="player0DisplayCardsTwo")
+                div(class="card inside" id="player0DisplayCardsThree")
+                div(class="card inside" id="player0DisplayCardsFour")
+                div(class="card inside" id="player0DisplayCardsFive")
 .gameMenu
     .button(id="deal")  Deal Cards 
     .button(id="hit")  HIT!

@@ -1,7 +1,12 @@
 const hitButton = document.getElementById('hit');
 const dealButton = document.getElementById('deal');
 const playbutton = document.getElementById('play');
-
+const playerDisplayCardsOne = document.getElementById('player0DisplayCardsOne');
+const playerDisplayCardsTwo = document.getElementById('player0DisplayCardsTwo');
+const playerDisplayCardsThree = document.getElementById('player0DisplayCardsThree');
+const playerDisplayCardsFour = document.getElementById('player0DisplayCardsFour');
+const playerDisplayCardsFive = document.getElementById('player0DisplayCardsFive');
+const dealerDisplayCards = document.getElementById('dealerDisplayCards');
 
 
 function card(value, name, suit) {
@@ -12,7 +17,7 @@ function card(value, name, suit) {
 
 function deck() {
     this.names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-    this.suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs'];
+    this.suits = ["♠", "♥" , "♦", "♣"];
     var cards = [];
 
     for (var s = 0; s < this.suits.length; s++) {
@@ -127,6 +132,9 @@ const handleClick = evt => {
             playerHand.push(deckHand[cardFour]);
             deckHand.pop(cardFour);
 
+            playerDisplayCardsOne.innerHTML = playerHand[0].name + "<br>" + playerHand[0].suit + "<br>" + playerHand[0].name;
+            playerDisplayCardsTwo.innerHTML = playerHand[1].name + "<br>" + playerHand[1].suit + "<br>" + playerHand[1].name;
+
             console.log(deckHand)
             console.log("Player: " + calculateHandValue(playerHand))
             console.log("Dealer: " + calculateHandValue(dealerHand))
@@ -135,6 +143,15 @@ const handleClick = evt => {
             var cardPlayed = Math.floor(Math.random() * (deckHand.length + 1));
             playerHand.push(deckHand[cardPlayed])
             deckHand.pop(cardPlayed)
+
+            if(playerDisplayCardsThree.innerHTML === ""){
+                playerDisplayCardsThree.innerHTML = playerHand[2].name + "<br>" + playerHand[2].suit + "<br>" + playerHand[2].name;
+            } else if(playerDisplayCardsFour.innerHTML === "") {
+                playerDisplayCardsFour.innerHTML = playerHand[3].name + "<br>" + playerHand[3].suit + "<br>" + playerHand[3].name;
+            } else if(playerDisplayCardsFive.innerHTML === ""){
+                playerDisplayCardsFive.innerHTML = playerHand[4].name + "<br>" + playerHand[4].suit + "<br>" + playerHand[4].name;
+            }
+
             console.log(calculateHandValue(playerHand))
             console.log(playerHand)
             break;
@@ -149,18 +166,22 @@ const handleClick = evt => {
             }
 
             if(calculateHandValue(playerHand) == 21){
-                PlayerWon();
+                console.log("Player Won")
+                //PlayerWon();
                 break;
             } else if(calculateHandValue(playerHand) > 21){
-                DealerHand();
+                console.log("Player Busts")
+                //DealerHand();
                 break;
             }
 
             if(calculateHandValue(dealerHand) == 21){
-                DealerWon();
+                console.log("Dealer wins")
+                //DealerWon();
                 break;
             }else if(calculateHandValue(dealerHand) > 21){
-                PlayerWon();
+                console.log("Dealer busts")
+                //PlayerWon();
                 break;
             }
             break;
