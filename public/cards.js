@@ -105,11 +105,12 @@ const handleClick = evt => {
     //console.log(evt.target.id);
     switch(evt.target.id){
         case 'deal':
-            playerHand.clear();
-            dealerHand.clear();
+            playerHand = [];
+            dealerHand = [];
             deckHand = shuffleArr(deck());
 
-            dealButton.style.display = 'none';
+            dealButton.style.visibility = 'hidden';
+            playbutton.style.visibility = 'visible';
             var cardOne= Math.floor(Math.random() * (deckHand.length + 1));
             dealerHand.push(deckHand[cardOne]);
             deckHand.pop(cardOne);
@@ -138,6 +139,9 @@ const handleClick = evt => {
             console.log(playerHand)
             break;
         case 'play':
+
+            dealButton.style.visibility = 'visible';
+            playbutton.style.visibility = 'hidden';
             if (calculateHandValue(dealerHand) < 10){
                 var cardPlayed = Math.floor(Math.random() * (deckHand.length + 1));
                 dealerHand.push(deckHand[cardPlayed])
