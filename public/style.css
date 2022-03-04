@@ -141,16 +141,19 @@ left: 25%;
 .card{
     width:40px;
     height:60px;
-    background-color: #F72C25;
-    border: 5px solid #040F16;
+    background-color: #040F16;
+    border: 5px solid #F72C25;
     color:#EDB458;
-    border-color: #040F16;
+    border-radius: 10px;
     float:left;
     margin-right:5px;
     margin-bottom:5px;
     border-radius:2px;
+    padding: 5px;
     font-family:courier;
     cursor:pointer;
+    width: 15%;
+    height: 100px;
 }
 
 .inside{
