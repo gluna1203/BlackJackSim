@@ -9,6 +9,8 @@ const playerDisplayCardsFive = document.getElementById('player0DisplayCardsFive'
 const dealerDisplayCardOne = document.getElementById('dealerDisplayCardsOne');
 const dealerDisplayCardTwo = document.getElementById('dealerDisplayCardsTwo');
 const dealerDisplayCardThree = document.getElementById('dealerDisplayCardsThree');
+const playerResults = document.getElementById('playerResuts');
+const dealerResults = document.getElementById('dealerResuts');
 
 function card(value, name, suit) {
     this.value = value;
@@ -109,6 +111,8 @@ const handleClick = evt => {
     //console.log(evt.target.id);
     switch (evt.target.id) {
         case 'deal':
+            playerResults.innerHTML = "Results:";
+            dealerResults.innerHTML = "Results:";
             playerDisplayCardsOne.innerHTML = "";
             playerDisplayCardsTwo.innerHTML = "";
             playerDisplayCardsThree.innerHTML = "";
@@ -183,23 +187,43 @@ const handleClick = evt => {
             }
 
             if (calculateHandValue(playerHand) == 21) {
+                playerResults.innerHTML = "Player Wins!!";
+                dealerResults.innerHTML = "Dealer Lost";
                 console.log("Player Won")
                 //PlayerWon();
                 break;
             } else if (calculateHandValue(playerHand) > 21) {
+                playerResults.innerHTML = "Player Busts...";
+                dealerResults.innerHTML = "Dealer Wins...";
                 console.log("Player Busts")
                 //DealerHand();
                 break;
             }
 
             if (calculateHandValue(dealerHand) == 21) {
+                dealerResults.innerHTML = "Dealer Wins...";
+                playerResults.innerHTML = "Player Lost...";
                 console.log("Dealer wins")
                 //DealerWon();
                 break;
             } else if (calculateHandValue(dealerHand) > 21) {
+                dealerResults.innerHTML = "Dealer Busts!!!";
+                playerResults.innerHTML = "Player Wins!";
                 console.log("Dealer busts")
                 //PlayerWon();
                 break;
+            }
+
+            if((calculateHandValue(playerHand) < 21) && (calculateHandValue(dealerHand) < 21)) {
+                if(calculateHandValue(playerHand) > calculateHandValue(dealerHand)) {
+                    playerResults.innerHTML = "player Wins!!";
+                    dealerResults.innerHTML = "Dealer Lost";
+                    console.log("Player Wins");
+                } else {
+                    dealerResults.innerHTML = "Dealer Wins...";
+                    playerResults.innerHTML = "Player Lost...";
+                    console.log("Dealer Wins");
+                }
             }
             break;
     }
