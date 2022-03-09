@@ -12,20 +12,20 @@ const dealerDisplayCardThree = document.getElementById('dealerDisplayCardsThree'
 const playerResults = document.getElementById('playerResuts');
 const dealerResults = document.getElementById('dealerResuts');
 
-function card(value, name, suit) {
-    this.value = value;
+function card(name, suit) {
+    //this.value = value;
     this.name = name;
     this.suit = suit;
 }
 
 function deck() {
-    this.names = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    this.names = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
     this.suits = ["♠", "♥", "♦", "♣"];
     var cards = [];
 
     for (var s = 0; s < this.suits.length; s++) {
         for (var n = 0; n < this.names.length; n++) {
-            cards.push(new card(n + 1, this.names[n], this.suits[s]));
+            cards.push(new card(this.names[n], this.suits[s]));
         }
     }
 
@@ -36,50 +36,50 @@ function calculateHandValue(Array) {
     var TPV = 0;
     var hasAce = 1;
     for (var i = 0; i < Array.length; i++) {
-        if (Array[i].name.includes("2")) {
-            TPV = TPV + 2;
+        if (Array[i].name == 2) {
+            TPV = (TPV + 2);
         }
-        if (Array[i].name.includes("3")) {
-            TPV = TPV + 3;
+        if (Array[i].name == 3) {
+            TPV = (TPV + 3);
         }
-        if (Array[i].name.includes("4")) {
-            TPV = TPV + 4;
+        if (Array[i].name == 4) {
+            TPV = (TPV + 4);
         }
-        if (Array[i].name.includes("5")) {
-            TPV = TPV + 5;
+        if (Array[i].name == 5) {
+            TPV = (TPV + 5);
         }
-        if (Array[i].name.includes("6")) {
-            TPV = TPV + 6;
+        if (Array[i].name == 6) {
+            TPV = (TPV + 6);
         }
-        if (Array[i].name.includes("7")) {
-            TPV = TPV + 7;
+        if (Array[i].name == 7) {
+            TPV = (TPV + 7);
         }
-        if (Array[i].name.includes("8")) {
-            TPV = TPV + 8;
+        if (Array[i].name == 8) {
+            TPV = (TPV + 8);
         }
-        if (Array[i].name.includes("9")) {
-            TPV = TPV + 9;
+        if (Array[i].name == 9) {
+            TPV = (TPV + 9);
         }
-        if (Array[i].name.includes("10")) {
-            TPV = TPV + 10;
+        if (Array[i].name == 10) {
+            TPV = (TPV + 10);
         }
-        if (Array[i].name.includes("J")) {
-            TPV = TPV + 10;
+        if (Array[i].name == "J") {
+            TPV = (TPV + 10);
         }
-        if (Array[i].name.includes("Q")) {
-            TPV = TPV + 10;
+        if (Array[i].name == "Q") {
+            TPV = (TPV + 10);
         }
-        if (Array[i].name.includes("K")) {
-            TPV = TPV + 10;
+        if (Array[i].name == "K") {
+            TPV = (TPV + 10);
         }
-        if (Array[i].name.includes("A")) {
-            TPV = TPV + 11;
+        if (Array[i].name == "A") {
+            TPV = (TPV + 11);
             hasAce++;
         }
     }
     for (var i = 0; i < hasAce; i++) {
         if (TPV > 21) {
-            TPV -= 10;
+            TPV = (TPV - 10);
         }
     }
     return TPV;
@@ -175,6 +175,7 @@ const handleClick = evt => {
             }
             break;
         case 'play':
+            
             dealerDisplayCardOne.innerHTML = dealerHand[0].name + "<br><br>" + dealerHand[0].suit + "<br><br>" + dealerHand[0].name;
             dealerDisplayCardTwo.innerHTML = dealerHand[1].name + "<br><br>" + dealerHand[1].suit + "<br><br>" + dealerHand[1].name;
             dealButton.style.visibility = 'visible';
@@ -216,7 +217,7 @@ const handleClick = evt => {
 
             if((calculateHandValue(playerHand) < 21) && (calculateHandValue(dealerHand) < 21)) {
                 if(calculateHandValue(playerHand) > calculateHandValue(dealerHand)) {
-                    playerResults.innerHTML = "player Wins!!";
+                    playerResults.innerHTML = "Player Wins!!";
                     dealerResults.innerHTML = "Dealer Lost";
                     console.log("Player Wins");
                 } else {
@@ -224,6 +225,12 @@ const handleClick = evt => {
                     playerResults.innerHTML = "Player Lost...";
                     console.log("Dealer Wins");
                 }
+            }
+
+            if(calculateHandValue(playerHand) == calculateHandValue(dealerHand)){
+                playerResults.innerHTML = "DRAW!";
+                dealerResults.innerHTML = "DRAW!";
+                console.log("Player Wins nothing")
             }
             break;
     }
